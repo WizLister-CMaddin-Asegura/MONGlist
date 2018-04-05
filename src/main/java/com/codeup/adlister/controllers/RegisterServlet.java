@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
@@ -21,6 +22,25 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
+//         sets the checks for register form / fix, not quite working yet
+//        HttpSession session = request.getSession();
+//
+//        if(password == null || password.trim() == "") {
+//            session.removeAttribute("password_error");
+//            session.removeAttribute("email_error");
+//            session.setAttribute("username_error", "<p style=\"color:red\">Sorry \"username\" error!</p>");
+//            response.sendRedirect("/register");
+//        }else if (!password.equals(passwordConfirmation)) {
+//            session.removeAttribute("username_error");
+//            session.removeAttribute("email_error");
+//            session.setAttribute("password_error", "<p style=\"color:red\">Sorry \"password\" error!</p>");
+//            response.sendRedirect("/register");
+//        }else if (email == null || email == "") {
+//            session.removeAttribute("username_error");
+//            session.removeAttribute("password_error");
+//            session.setAttribute("email_error", "<p style=\"color:red\">Sorry \"email\" error!</p>");
+//            response.sendRedirect("/register");
+//        }
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
