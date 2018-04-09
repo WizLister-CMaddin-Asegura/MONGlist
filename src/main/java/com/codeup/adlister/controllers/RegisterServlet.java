@@ -25,19 +25,29 @@ public class RegisterServlet extends HttpServlet {
 
 //         sets the checks for register form / add more features
         HttpSession session = request.getSession();
-
-        if (password == null || password.trim() == "") {
+//                      not perfected but still functional
+        if(username.isEmpty() || email.isEmpty() || password.isEmpty()) {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
-            session.setAttribute("password_error", "<p style=\"color:red\">Sorry \"password\" error!</p>");
+            session.removeAttribute("form_error");
+            session.setAttribute("form_error", "<p style=\"color:red\">Sorry \"register form\" error! all form entries must be completed</p>");
+            response.sendRedirect("/register");
+        } else if (password == null || password.trim() == "") {
+            session.removeAttribute("password_error");
+            session.removeAttribute("email_error");
+            session.removeAttribute("username_error");
+            session.removeAttribute("password_mismatch");
+            session.removeAttribute("form_error");
+            session.setAttribute("password_error", "<p style=\"color:red\">Sorry \"password\" error! password  was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else if (!password.equals(passwordConfirmation)) {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
+            session.removeAttribute("form_error");
             session.setAttribute("password_mismatch", "<p style=\"color:red\">Sorry \"passwords\" do not match!</p>");
             response.sendRedirect("/register");
         } else if (email == null || email.trim() == "") {
@@ -45,20 +55,23 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
-            session.setAttribute("email_error", "<p style=\"color:red\">Sorry \"email\" error!</p>");
+            session.removeAttribute("form_error");
+            session.setAttribute("email_error", "<p style=\"color:red\">Sorry \"email\" error! :email was left empty or has invalid input </p>");
             response.sendRedirect("/register");
         } else if (username == null || username.trim() == "") {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
-            session.setAttribute("username_error", "<p style=\"color:red\">Sorry \"username\" error!</p>");
+            session.removeAttribute("form_error");
+            session.setAttribute("username_error", "<p style=\"color:red\"> \"username\" error! : username was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else {
             session.removeAttribute("password_error");
             session.removeAttribute("password_mismatch");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
+            session.removeAttribute("form_error");
             session.setAttribute("username", username);
             session.setAttribute("password", password);
             session.setAttribute("email", email);

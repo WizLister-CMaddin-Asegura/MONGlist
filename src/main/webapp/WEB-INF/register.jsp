@@ -14,7 +14,8 @@
         ${username_error}
         ${password_error}
         ${email_error}
-
+        ${password_mismatch}
+        ${form_error}
 
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
