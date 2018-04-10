@@ -1,7 +1,9 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Config;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 
@@ -36,12 +38,17 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO users(username, email, password, first_name, last_name, zipcode, mobile_number, language_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
+            stmt.setString(3, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(DaoFactory.hashRounds)));
+            stmt.setString(4, user.getFirst_name());
+            stmt.setString(5, user.getLast_name());
+            stmt.setLong(6, user.getZipcode());
+            stmt.setLong(7, user.getMobile_number());
+            stmt.setLong(8, user.getLanguage_id());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -59,7 +66,12 @@ public class MySQLUsersDao implements Users {
             rs.getLong("id"),
             rs.getString("username"),
             rs.getString("email"),
-            rs.getString("password")
+            rs.getString("password"),
+            rs.getString("first_name"),
+            rs.getString("last_name"),
+            rs.getInt("zipcode"),
+            rs.getLong("mobile_number"),
+            rs.getLong("language_id")
         );
     }
 
