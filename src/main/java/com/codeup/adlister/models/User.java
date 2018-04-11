@@ -13,7 +13,7 @@ public class User {
     private long mobile_number;
     private long language_id;
 
-    public User() {}
+    public User(long id, String username, String email, String password, String first_name, String last_name, int zipcode, long mobile_number) {}
 
     public User(String username, String email, String password, String first_name, String last_name, int zipcode, long mobile_number, long language_id) {
         this.username = username;
@@ -43,7 +43,7 @@ public class User {
 
 
     //    special constuctor for register servlet line 198
-    public User(String username, String email, String password, String first_name, String last_name, String zipcode, String mobile_number, String language_id) {
+    public User(String username, String email, String password, String first_name, String last_name, String zipcode, String mobile_number) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -51,7 +51,6 @@ public class User {
         this.last_name = last_name;
         this.zipcode = Integer.parseInt(zipcode);
         this.mobile_number = Long.parseLong(mobile_number);
-        this.language_id = Long.parseLong(language_id);
     }
 
     public long getId() {
@@ -123,9 +122,7 @@ public class User {
         return language_id;
     }
 
-    public void setLanguage_id(long language_id) {
-        this.language_id = language_id;
-    }
+
 
 
 }

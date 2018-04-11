@@ -56,10 +56,6 @@
                 <label for="mobile_number">Mobile Phone#</label>
                 <input id="mobile_number" name="mobile_number" class="form-control" type="number">
             </div>
-            <div class="form-group">
-                <label for="language_id">Preffered Language</label>
-                <input id="language_id" name="language_id" class="form-control" type="text">
-            </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>

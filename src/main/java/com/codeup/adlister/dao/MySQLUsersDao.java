@@ -38,7 +38,7 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password, first_name, last_name, zipcode, mobile_number, language_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO users(username, email, password, first_name, last_name, zipcode, mobile_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
@@ -48,7 +48,6 @@ public class MySQLUsersDao implements Users {
             stmt.setString(5, user.getLast_name());
             stmt.setLong(6, user.getZipcode());
             stmt.setLong(7, user.getMobile_number());
-            stmt.setLong(8, user.getLanguage_id());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -59,20 +58,20 @@ public class MySQLUsersDao implements Users {
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password"),
-            rs.getString("first_name"),
-            rs.getString("last_name"),
-            rs.getInt("zipcode"),
-            rs.getLong("mobile_number"),
-            rs.getLong("language_id")
-        );
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password"),
+                rs.getString("first_name"),
+                rs.getString("last_name"),
+                rs.getInt("zipcode"),
+                rs.getLong("mobile_number"));
     }
 
-}
+    }
+
+
