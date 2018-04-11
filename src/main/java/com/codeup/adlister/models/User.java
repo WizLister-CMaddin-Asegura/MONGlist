@@ -37,11 +37,17 @@ public class User {
         this.language_id = language_id;
     }
 
-//    special constuctor for register servlet line 91
-    public User(String username, String email, String password) {
+
+    //    special constuctor for register servlet line 198
+    public User(String username, String email, String password, String first_name, String last_name, String zipcode, String mobile_number, String language_id) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.zipcode = Integer.parseInt(zipcode);
+        this.mobile_number = Long.parseLong(mobile_number);
+        this.language_id = Long.parseLong(language_id);
     }
 
     public long getId() {
