@@ -13,7 +13,8 @@ public class User {
     private long mobile_number;
 
 
-    public User(long id, String username, String email, String password, String first_name, String last_name, int zipcode, long mobile_number) {}
+    public User() {}
+
     public User(String username, String email, String password, String first_name, String last_name, int zipcode, long mobile_number) {
         this.username = username;
         this.email = email;
@@ -50,6 +51,7 @@ public class User {
         this.last_name = last_name;
         this.zipcode = Integer.parseInt(zipcode);
         this.mobile_number = Long.parseLong(mobile_number);
+
     }
 
     public long getId() {
@@ -116,9 +118,6 @@ public class User {
     public void setMobile_number(long mobile_number) {
         this.mobile_number = mobile_number;
     }
-
-
-
 
 
 
