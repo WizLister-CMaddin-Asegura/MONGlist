@@ -4,6 +4,8 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
+    <%--<link href="../stylesheets/basic.css" rel="stylesheet">--%>
+    <%--<link href="../stylesheets/login.css" rel="stylesheet">--%>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
