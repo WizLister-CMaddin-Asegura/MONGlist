@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 //            session.setAttribute("form_error", "<p style=\"color:red\">Sorry \"register form\" error! all form entries must be completed</p>");
 //            response.sendRedirect("/register");
 //        } else
-            if (password == null || password.trim() == "") {
+        if (password == null || password.trim() == "") {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
@@ -141,7 +141,7 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
-            session.removeAttribute("language_error");
+
             session.setAttribute("mobile_number_error", "<p style=\"color:red\"> \"mobile_number\" error! : mobile number was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else {
@@ -154,19 +154,7 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
-            session.removeAttribute("language_error");
 
-            response.sendRedirect("/register");
-        }  else {
-            session.removeAttribute("password_error");
-            session.removeAttribute("password_mismatch");
-            session.removeAttribute("email_error");
-            session.removeAttribute("username_error");
-            session.removeAttribute("form_error");
-            session.removeAttribute("first_name_error");
-            session.removeAttribute("last_name_error");
-            session.removeAttribute("zipcode_error");
-            session.removeAttribute("mobile_number_error");
 
 
             session.setAttribute("username", username);
@@ -187,7 +175,6 @@ public class RegisterServlet extends HttpServlet {
                     || last_name.isEmpty()
                     ||  zipcode.isEmpty()
                     || mobile_number.isEmpty();
-
 
             if (inputHasErrors) {
                 response.sendRedirect("/register");
