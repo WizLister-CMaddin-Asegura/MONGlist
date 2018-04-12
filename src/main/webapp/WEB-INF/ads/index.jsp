@@ -16,8 +16,18 @@
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
+            <p>${ad.category_id}</p>
+            <p>$${ad.expected_price}USD</p>
         </div>
     </c:forEach>
+
+
+    <%--<%--%>
+        <%--// New location to be redirected--%>
+        <%--String site = new String("/ads");--%>
+        <%--response.setStatus(response.SC_MOVED_TEMPORARILY);--%>
+        <%--response.setHeader("pagename", site);--%>
+    <%--%>--%>
 </div>
 
 </body>

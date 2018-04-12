@@ -11,11 +11,11 @@ public class User {
     private String last_name;
     private int zipcode;
     private long mobile_number;
-    private long language_id;
+
 
     public User() {}
 
-    public User(String username, String email, String password, String first_name, String last_name, int zipcode, long mobile_number, long language_id) {
+    public User(String username, String email, String password, String first_name, String last_name, int zipcode, long mobile_number) {
         this.username = username;
         this.email = email;
 
@@ -25,11 +25,11 @@ public class User {
 //        setPassword(password);
         this.zipcode = zipcode;
         this.mobile_number = mobile_number;
-        this.language_id = language_id;
+
 
     }
 
-    public User(long id, String username, String email, String password,  String first_name, String last_name, int zipcode, long mobile_number, long language_id) {
+    public User(long id, String username, String email, String password,  String first_name, String last_name, int zipcode, long mobile_number) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -38,12 +38,12 @@ public class User {
         this.last_name = last_name;
         this.zipcode = zipcode;
         this.mobile_number = mobile_number;
-        this.language_id = language_id;
+
     }
 
 
     //    special constuctor for register servlet line 198
-    public User(String username, String email, String password, String first_name, String last_name, String zipcode, String mobile_number, String language_id) {
+    public User(String username, String email, String password, String first_name, String last_name, String zipcode, String mobile_number) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -51,7 +51,7 @@ public class User {
         this.last_name = last_name;
         this.zipcode = Integer.parseInt(zipcode);
         this.mobile_number = Long.parseLong(mobile_number);
-        this.language_id = Long.parseLong(language_id);
+
     }
 
     public long getId() {
@@ -119,13 +119,7 @@ public class User {
         this.mobile_number = mobile_number;
     }
 
-    public long getLanguage_id() {
-        return language_id;
-    }
 
-    public void setLanguage_id(long language_id) {
-        this.language_id = language_id;
-    }
 
 
 }
