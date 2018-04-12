@@ -6,6 +6,7 @@
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar-createAd.jsp" />
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
@@ -24,11 +25,7 @@
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
+                    <option>5</option>
                 </select>
             </div>
 
@@ -46,6 +43,8 @@
 
 
             <input type="submit" class="btn btn-block btn-primary">
+            <br>
+            <br>
         </form>
     </div>
 </body>
