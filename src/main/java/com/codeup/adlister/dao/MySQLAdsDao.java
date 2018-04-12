@@ -42,18 +42,17 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, description, category_id, created_date, is_active, is_seller, is_buyer, expected_price, last_updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, description, category_id, expected_price) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
             stmt.setLong(4, ad.getCategory_id());
-            stmt.setString(5, ad.getCreated_date());
-            stmt.setBoolean(6, ad.isIs_active());
-            stmt.setBoolean(7, ad.isIs_seller());
-            stmt.setBoolean(8, ad.isIs_buyer());
-            stmt.setDouble(9, ad.getExpected_price());
-            stmt.setString(10, ad.getLast_updated());
+//            stmt.setString(5, "NOW()");
+//            stmt.setBoolean(6, true);
+//            stmt.setBoolean(7, ad.isIs_seller());
+            stmt.setDouble(5, ad.getExpected_price());
+//            stmt.setString(10, "CURDATE()");
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -70,12 +69,11 @@ public class MySQLAdsDao implements Ads {
             rs.getString("title"),
             rs.getString("description"),
             rs.getLong("category_id"),
-            rs.getString("created_date"),
-            rs.getBoolean("is_active"),
-            rs.getBoolean("is_seller"),
-            rs.getBoolean("is_buyer"),
-            rs.getLong("expected_price"),
-            rs.getString("last_updated")
+//            rs.getString("created_date"),
+//            rs.getBoolean("is_active"),
+//            rs.getBoolean("is_seller"),
+            rs.getLong("expected_price")
+//            rs.getString("last_updated")
 
         );
     }
