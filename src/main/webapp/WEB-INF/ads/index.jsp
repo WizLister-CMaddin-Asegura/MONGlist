@@ -6,8 +6,15 @@
         <jsp:param name="title" value="Viewing All The MONGAds" />
     </jsp:include>
 </head>
-<body>
+<body class="bg-light">
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://countryandvictoriantimes.files.wordpress.com/2017/01/header1.gif" >
+        <h2>MONGAds</h2>
+
+    </div>
+
 
 <div class="container">
     <h1>Here Are all the ads!</h1>
@@ -29,6 +36,8 @@
         <%--response.setHeader("pagename", site);--%>
     <%--%>--%>
 </div>
+</div>
+</body>
 
 </body>
 </html>

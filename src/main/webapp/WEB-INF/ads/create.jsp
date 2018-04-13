@@ -5,8 +5,15 @@
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
 </head>
-<body>
+<body class="bg-light">
 <jsp:include page="/WEB-INF/partials/navbar-createAd.jsp" />
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://countryandvictoriantimes.files.wordpress.com/2017/01/header1.gif" >
+        <h2>Create MONGAd</h2>
+
+    </div>
+
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
@@ -47,6 +54,8 @@
             <br>
         </form>
     </div>
+</div>
+</body>
 </body>
 </html>
 <%--ADD FIELDS FOR FORM REFER TO create.jsp--%>
