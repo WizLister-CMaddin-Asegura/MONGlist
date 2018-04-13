@@ -28,11 +28,11 @@
             <div class="form-group">
                 <label for="category_id">Select Ad Category</label>
                 <select class="form-control" id="category_id" name="category_id">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value="1">Housing</option>
+                    <option value="2">For Sale</option>
+                    <option value="3">Services</option>
+                    <option valued="4">Jobs</option>
+                    <option value="5">Personals</option>
                 </select>
             </div>
 
