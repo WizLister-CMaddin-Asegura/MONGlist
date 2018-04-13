@@ -1,6 +1,6 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Config;
+import com.codeup.adlister.controllers.Config;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import org.mindrot.jbcrypt.BCrypt;
@@ -15,7 +15,7 @@ public class MySQLUsersDao implements Users {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUser(),
+                config.getUsername(),
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -48,7 +48,9 @@ public class MySQLUsersDao implements Users {
             stmt.setString(5, user.getLast_name());
             stmt.setLong(6, user.getZipcode());
             stmt.setLong(7, user.getMobile_number());
+
 //            stmt.setLong(8, user.getLanguage_id());
+
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -59,10 +61,13 @@ public class MySQLUsersDao implements Users {
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
+
+               
+
             rs.getLong("id"),
             rs.getString("username"),
             rs.getString("email"),
@@ -72,6 +77,9 @@ public class MySQLUsersDao implements Users {
             rs.getInt("zipcode"),
             rs.getLong("mobile_number")
         );
+
     }
 
-}
+    }
+
+

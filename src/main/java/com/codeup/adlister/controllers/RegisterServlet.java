@@ -26,7 +26,11 @@ public class RegisterServlet extends HttpServlet {
         String last_name = request.getParameter("last_name");
         String zipcode = request.getParameter("zipcode");
         String mobile_number = request.getParameter("mobile_number");
+
+
+
 //        String language_id = request.getParameter("language_id");
+
 
 //         sets the checks for register form / add more features
         HttpSession session = request.getSession();
@@ -40,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
 //            session.setAttribute("form_error", "<p style=\"color:red\">Sorry \"register form\" error! all form entries must be completed</p>");
 //            response.sendRedirect("/register");
 //        } else
-            if (password == null || password.trim() == "") {
+        if (password == null || password.trim() == "") {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
@@ -50,7 +54,11 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
+
+
 //            session.removeAttribute("language_error");
+
             session.setAttribute("password_error", "<p style=\"color:red\">Sorry \"password\" error! password  was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else if (!password.equals(passwordConfirmation)) {
@@ -63,7 +71,11 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
+
+
 //            session.removeAttribute("language_error");
+
             session.setAttribute("password_mismatch", "<p style=\"color:red\">Sorry \"passwords\" do not match!</p>");
             response.sendRedirect("/register");
         } else if (email == null || email.trim() == "") {
@@ -76,7 +88,11 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
+
+
 //            session.removeAttribute("language_error");
+
             session.setAttribute("email_error", "<p style=\"color:red\">Sorry \"email\" error! :email was left empty or has invalid input </p>");
             response.sendRedirect("/register");
         } else if (username == null || username.trim() == "") {
@@ -89,7 +105,11 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
+
+
 //            session.removeAttribute("language_error");
+
             session.setAttribute("username_error", "<p style=\"color:red\"> \"username\" error! : username was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else if (first_name == null || first_name.trim() == "") {
@@ -102,7 +122,11 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
+
+
 //            session.removeAttribute("language_error");
+
             session.setAttribute("first_name_error", "<p style=\"color:red\"> \"first_name\" error! : first name was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else if (last_name == null || last_name.trim() == "") {
@@ -115,7 +139,11 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
+
+
 //            session.removeAttribute("language_error");
+
             session.setAttribute("last_name_error", "<p style=\"color:red\"> \"last_name\" error! : last_name was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else if (zipcode == null || zipcode.trim() == "") {
@@ -128,7 +156,11 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
+
+
 //            session.removeAttribute("language_error");
+
             session.setAttribute("zipcode_error", "<p style=\"color:red\"> \"zipcode\" error! : zipcode was left empty or has invalid input</p>");
             response.sendRedirect("/register");
         } else if (mobile_number == null || mobile_number.trim() == "") {
@@ -141,6 +173,7 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
+
 //            session.removeAttribute("language_error");
             session.setAttribute("mobile_number_error", "<p style=\"color:red\"> \"mobile_number\" error! : mobile number was left empty or has invalid input</p>");
             response.sendRedirect("/register");
@@ -157,17 +190,19 @@ public class RegisterServlet extends HttpServlet {
 //            session.removeAttribute("language_error");
 //            session.setAttribute("language_id_error", "<p style=\"color:red\"> \"language_id\" error! : preffered language was left empty or has invalid input</p>");
 //            response.sendRedirect("/register");
+
         } else {
             session.removeAttribute("password_error");
-            session.removeAttribute("password_mismatch");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
+            session.removeAttribute("password_mismatch");
             session.removeAttribute("form_error");
             session.removeAttribute("first_name_error");
             session.removeAttribute("last_name_error");
             session.removeAttribute("zipcode_error");
             session.removeAttribute("mobile_number_error");
-            session.removeAttribute("language_error");
+
+
 
             session.setAttribute("username", username);
             session.setAttribute("password", password);
