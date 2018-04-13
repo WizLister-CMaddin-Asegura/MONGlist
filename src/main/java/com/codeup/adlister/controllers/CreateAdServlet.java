@@ -25,7 +25,7 @@ public class CreateAdServlet extends HttpServlet {
                 .forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, NullPointerException {
 
 
 
@@ -36,12 +36,11 @@ public class CreateAdServlet extends HttpServlet {
                     request.getParameter("title"),
                     request.getParameter("description"),
                     Long.parseLong(request.getParameter("category_id")),
-                    request.getParameter("created_date"),
-                    getBoolean(request.getParameter("is_active")),
-                    getBoolean(request.getParameter("is_seller")),
-                    getBoolean(request.getParameter("is_buyer")),
-                    Long.parseLong(request.getParameter("expected_price")),
-                    request.getParameter("last_updated")
+//                    request.getParameter("created_date"),
+//                    getBoolean(request.getParameter("is_active")),
+//                    getBoolean(request.getParameter("is_seller")),
+                    Double.parseDouble(request.getParameter("expected_price"))
+//                    request.getParameter("last_updated")
             );
             DaoFactory.getAdsDao().insert(ad);
             response.sendRedirect("/ads");

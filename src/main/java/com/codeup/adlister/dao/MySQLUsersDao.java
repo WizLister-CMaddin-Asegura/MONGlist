@@ -48,6 +48,9 @@ public class MySQLUsersDao implements Users {
             stmt.setString(5, user.getLast_name());
             stmt.setLong(6, user.getZipcode());
             stmt.setLong(7, user.getMobile_number());
+
+//            stmt.setLong(8, user.getLanguage_id());
+
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -62,14 +65,19 @@ public class MySQLUsersDao implements Users {
             return null;
         }
         return new User(
-                rs.getLong("id"),
-                rs.getString("username"),
-                rs.getString("email"),
-                rs.getString("password"),
-                rs.getString("first_name"),
-                rs.getString("last_name"),
-                rs.getInt("zipcode"),
-                rs.getLong("mobile_number"));
+
+               
+
+            rs.getLong("id"),
+            rs.getString("username"),
+            rs.getString("email"),
+            rs.getString("password"),
+            rs.getString("first_name"),
+            rs.getString("last_name"),
+            rs.getInt("zipcode"),
+            rs.getLong("mobile_number")
+        );
+
     }
 
     }
