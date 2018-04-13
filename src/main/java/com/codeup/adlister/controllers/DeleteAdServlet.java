@@ -1,5 +1,6 @@
 //package com.codeup.adlister.controllers;
 //
+//
 //import com.codeup.adlister.dao.DaoFactory;
 //import com.codeup.adlister.models.Ad;
 //
@@ -15,7 +16,7 @@
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //
 //        long id = Long.parseLong(request.getParameter("id"));
-//        Ad ad = DaoFactory.getAdsDao().getAdById(id);
+//        Ad ad = DaoFactory.getAdsDao().findOne(id);
 //        DaoFactory.getAdsDao().deleteAD(ad);
 //
 //        if (request.getSession().getAttribute("user") != null) {

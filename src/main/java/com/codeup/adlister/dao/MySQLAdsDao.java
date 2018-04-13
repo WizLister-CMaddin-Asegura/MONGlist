@@ -1,8 +1,10 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.controllers.Config;
+import com.codeup.adlister.models.Config;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
+import javax.print.attribute.standard.PresentationDirection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUsername(),
+                config.getUser(),
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -74,6 +76,21 @@ public class MySQLAdsDao implements Ads {
 //            rs.getString("last_updated")
 
         );
+    }
+
+    @Override
+    public Ad findOne(Long id) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (! rs.next()) {
+                throw new RuntimeException(String.format("No ad found for the id: %s", id));
+            }
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding an individual ad", e);
+        }
     }
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {

@@ -1,4 +1,4 @@
-
+//
 //package controllers;
 //
 //import com.codeup.adlister.dao.DaoFactory;
@@ -16,7 +16,7 @@
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //
 //        long id = Long.parseLong(request.getParameter("id"));
-//        Ad ad = DaoFactory.getAdsDao().getAdById(id);
+//        Ad ad = DaoFactory.getAdsDao().findOne(id);
 //        DaoFactory.getAdsDao().deleteAd(ad);
 //
 //        response.sendRedirect("/profile");
@@ -27,7 +27,7 @@
 //
 //        long id = Long.parseLong(request.getParameter("id"));
 //
-//        Ad viewAdInfo = DaoFactory.getAdsDao().getAdById(id);
+//        Ad viewAdInfo = DaoFactory.getAdsDao().findOne(id);
 //        request.setAttribute("viewAdInfo", viewAdInfo);
 //
 //

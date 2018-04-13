@@ -24,7 +24,7 @@
 //
 //        }
 //
-//        Ad ad = DaoFactory.getAdsDao().getAdById(id);
+//        Ad ad = DaoFactory.getAdsDao().findOne(id);
 //
 //        if (ad == null) {
 //            response.sendRedirect("/ads");
@@ -60,7 +60,7 @@
 //
 //    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        long id = Long.parseLong(request.getParameter("id"));
-//        Ad ad = DaoFactory.getAdsDao().getAdById("id"));
+//        Ad ad = DaoFactory.getAdsDao().findOne(Long.valueOf("id")));
 //        request.setAttribute("ad", ad);
 //        request.getRequestDispatcher("/WEB-INF/editAd.jsp").forward(request, response);
 //    }
